@@ -1,0 +1,20 @@
+# Gizli dosya (Veritabanı şifreleri burada olacak)
+.env
+
+# Python sanal ortam klasörü (Çok büyüktür, gereksizdir)
+venv/
+env/
+
+# Python'ın oluşturduğu gereksiz önbellek dosyaları
+__pycache__/
+*.pyc
+
+# İşletim sistemi dosyaları
+.DS_Store
+Thumbs.db
+
+# VS Code ayar klasörü (Opsiyonel)
+.vscode/
+
+# To-Do dosyası
+todo.txt

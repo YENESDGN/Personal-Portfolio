@@ -1,0 +1,13 @@
+Kişisel Portfölye Sitesi :
+
+
+Yapılacaklar : 
+1 - Öncelikle Frontend Dosyası Oluşturulmalı.
+2 - Veritabanı Oluşturulmalı.
+3 - Backend Oluşturulmalı.
+
+Kullanılacak Teknolojiler :
+Frontend : HTML, CSS, JavaScript (İleride Değişecek.)
+Backend : FastAPI
+Veritabanı : PostgreSQL
+
