@@ -100,6 +100,11 @@ body {
     transform: scale(1.1);
 }
 
+.projects-grid{
+    margin-top: 250px;
+    
+    border: #00d4ff 2px solid;
+}
 @media (max-width: 1024px) {
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
