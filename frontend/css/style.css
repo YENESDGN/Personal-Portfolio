@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #0c14a2;
+    background-color: #0C1618;
 }
 
 .top-deco-bar {
@@ -11,14 +11,48 @@ body {
     background: linear-gradient(135deg, #13164d 0%, #0c14a2 100%);
 }
 
-.name-cont {
-    text-align: center;
-    margin-top: 10px;
+.images-section {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #0C1618;
 }
 
+.images {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background-color: #0C1618;
+}
+.images img {
+    margin-top: 100px;
+    width: 275px;
+    height: auto;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+.name-cont {
+    text-align: center;
+    margin-top: 100px;
+    border-radius: 12px;
+    background-color: #004643;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
+    transition: all 0.3s ease;
+    border: -10px solid rgba(red, green, blue, alpha);
+    width: 40%;
+    margin-left: 30%;
+}
 .name {
     color: white;
     font-family: SF-Pro-Display, sans-serif;
+    font-size: 5em;
+    font-weight: 600;
+    margin: 0;
 }
 
 .container {
@@ -29,7 +63,7 @@ body {
 
 /*Projeler Bölümü*/
 .projects-section {
-    padding: 80px 0;
+    padding: 20px 0;
 }
 
 .section-title {
@@ -53,12 +87,35 @@ body {
     display: block;
 }
 
+/*About Me Bölümü*/
+.about-me-section {
+    padding: 10px 0;
+}
+
+.about-me-content-grid {
+    display: flex;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    justify-content: center;
+}
+.about-me-content-grid h2 {
+    font-size: 3.5em;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+.about-me-content-grid h2:nth-child(2) {
+    text-align: center;
+}
+
 /*Proje Kartı*/
 .project-card {
-    background-color: #0c14a2;
+    position: relative;
+    background-color: #004643;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
     transition: all 0.3s ease;
     border: 1px solid rgba(red, green, blue, alpha);
 }
@@ -78,15 +135,16 @@ body {
 
 /*Kart Bilgisi*/
 .card-info {
-    padding: 20px;
-    text-align: center;
+    text-align: top;
+    padding: 2px;
 }
 
 .card-info h3 {
     font-size: 1.3rem;
     font-weight: 600px;
     color: #fff;
-    margin: 0;
+    margin: 0px;
+    position: relative;
 }
 
 /*Hover Efektleri*/
@@ -101,9 +159,7 @@ body {
 }
 
 .projects-grid{
-    margin-top: 250px;
-    
-    border: #00d4ff 2px solid;
+    margin-top: 50%;
 }
 @media (max-width: 1024px) {
     .projects-grid {
