@@ -25,10 +25,15 @@ body {
     width: 275px;
     height: auto;
     gap: 20px;
+}
+
+.images img:hover {
+    transform: translateY(-10px);
     transition: all 0.3s ease;
 }
+
 .name-cont {
-    background-color: #004643;
+    background: linear-gradient(to bottom right, #2E4057 0%, #ffffff 100%);
     padding: 50px;
     box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
     transition: all 0.3s ease;
@@ -37,6 +42,13 @@ body {
     height: 200px;
     margin-bottom: 0px;
 }
+
+.name-cont:hover {
+    transition: all 0.3s ease;
+    transform: translateY(-10px);
+    box-shadow: 15px 10px 30px rgba(86, 78, 78, 0.4);
+}
+
 .name {
     color: white;
     font-family: SF-Pro-Display, sans-serif;
@@ -61,7 +73,7 @@ body {
     background-color: white;
     border-radius: 4px;
     border-width: 1px solid #13164d;
-    box-shadow: 10px 10px 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 15px 10px 30px rgba(255, 255, 255, 0.2);
 }
 
 .container {
@@ -126,7 +138,7 @@ body {
 /*Proje Kartı*/
 .project-card {
     position: relative;
-    background-color: #004643;
+    background-color: #2E4057;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
@@ -163,9 +175,8 @@ body {
 
 /*Hover Efektleri*/
 .project-card-link:hover .project-card {
-    transform: translateY(-10px);
+    transform: translate3D(10px, 10px, 0);
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-    border-color: #00d4ff;
 }
 
 .project-card-link:hover .card-image img {
@@ -174,14 +185,74 @@ body {
 
 .footer {
     text-align: center;
-    color: rgb(0, 0, 0);
     font-size: 1.2em;
     font-weight: 600;
     margin-top: 100px;
     background-color: white;
-    padding: 100px;
-    border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
+    padding: 0px;
+    height: 20%;
+    box-shadow: 10px 10px 20px rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.footer-image {
+    border-radius: 4px;
+    width: 100%;
+    height: 200px;
+    display: block;
+    overflow: hidden;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.footer-image-2 {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin-right: 350px;
+    object-fit: cover;
+}
+.footer-image-3 {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.footer-image-4 {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 12%;
+    height: auto;
+    margin-right: -350px;
+    object-fit: cover;
+}
+
+.footer-images {
+    position: relative;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-image-2:hover,
+.footer-image-3:hover,
+.footer-image-4:hover{
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .projects-grid{

@@ -47,9 +47,32 @@
     <div class="deco-block-2"></div>
 </section>
 
+
+    <div class>
+
     </section>
     <section id="projects" class="projects-section">
         <div class="projects-grid">
+            <a href="proje-1-detay.html" class="project-card-link">
+                <div class="project-card">
+                            <div class="card-info">
+                                <h3>Proje İsmi</h3>
+                            </div>
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x250/1a1a2e/00d4ff?text=Proje+Görseli+1" alt="Proje 1">
+                    </div>
+                </div>
+            </a>
+            <a href="proje-1-detay.html" class="project-card-link">
+                <div class="project-card">
+                            <div class="card-info">
+                                <h3>Proje İsmi</h3>
+                            </div>
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x250/1a1a2e/00d4ff?text=Proje+Görseli+1" alt="Proje 1">
+                    </div>
+                </div>
+            </a>
             <a href="proje-1-detay.html" class="project-card-link">
                 <div class="project-card">
                             <div class="card-info">
@@ -124,7 +147,29 @@
     </section>
 
     <div class="footer">
-        <p>Copyright © 2025 Yağız Enes DOĞAN</p>
+        <section class="footer">
+            <div class="footer-images">
+                <img class="footer-image" src="assets/images/footer_image.jpeg">
+                 
+                <img class="footer-image-2" src="assets/images/linkedin_logo.png">
+                <img class="footer-image-3" src="assets/images/github_logo.png">
+                <img class="footer-image-4" src="assets/images/instagram_logo.png">
+            </div>
+        </section>
     </div>
 </body>
+
+<script>
+    document.querySelector('.footer-image-4').addEventListener('click', function() {
+        window.open('https://instagram.com/yourpage', '_blank');
+    });
+    
+    document.querySelector('.footer-image-2').addEventListener('click', function() {
+        window.open('https://www.linkedin.com/in/ya%C4%9F%C4%B1z-enes-do%C4%9Fan-1b0731295/', '_blank');
+    });
+
+    document.querySelector('.footer-image-3').addEventListener('click', function() {
+        window.open('https://github.com/YENESDGN', '_blank');
+    });
+    </script>
 </html>
