@@ -19,9 +19,16 @@ body {
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     padding: 0px;
-}
-.images img {
     margin-top: 100px;
+    border: 2px solid white;
+    border-radius: 20px;
+    border-top : 0px;
+    box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.109);
+    box-sizing: border-box;
+}
+
+.images img {
+    margin-top: 25px;
     width: 275px;
     height: auto;
     gap: 20px;
@@ -33,7 +40,7 @@ body {
 }
 
 .name-cont {
-    background: linear-gradient(to bottom right, #2E4057 0%, #ffffff 100%);
+    background: #2E4057;
     padding: 50px;
     box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
     transition: all 0.3s ease;
