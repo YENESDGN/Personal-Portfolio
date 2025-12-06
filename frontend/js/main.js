@@ -10,9 +10,6 @@ document.querySelector('.footer-image-3').addEventListener('click', function() {
     window.open('https://github.com/YENESDGN', '_blank');
 });
 
-
-// İstediğin elementleri seç
-// Animasyon istediğin elementleri buraya yaz
 const selectors = [
     '.welcome-text',
     '.images_description',
@@ -21,8 +18,6 @@ const selectors = [
     '.about-me-content-grid',
     '.projects-section',
     '.projects-grid',
-    '.deco-block-1',
-    '.deco-block-2',
 ];
 
 const elements = document.querySelectorAll(selectors.join(', '));
