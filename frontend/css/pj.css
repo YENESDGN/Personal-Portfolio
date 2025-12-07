@@ -1,0 +1,58 @@
+body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+}
+
+:root {
+    /* Renkler(Colors) */
+    --color-bg-primary: #061048;
+    --color-bg-secondary: #0b0b0b;
+    --color-bg-card: #063676;
+    --color-bg-section: #021125;
+    --color-accent: rgb(12, 93, 155);
+    --color-text: white;
+    --color-border: white;
+
+    /* Font Büyüklükleri - Topoğrafya (Font Size - Typography) */
+    --font-primary: 'Space Mono', monospace;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase; /* Bu font büyük harfte harika durur */
+}
+
+/* Top Bar */
+.top-bar {
+    width: 100%;
+    top: 0;
+    height: 500px;
+    background-color: var(--color-bg-section);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Go-Back Button */
+.go-back {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1em;
+    margin: 20px;
+    margin-top: -375px;
+    padding: 10px;
+    position: relative;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    border: 2px solid var(--color-accent);
+    display: inline-block;
+}
+
+.go-back:hover {
+    background-color: var(--color-accent);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}

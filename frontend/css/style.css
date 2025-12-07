@@ -97,7 +97,7 @@ h1, h2, h3 {
     font-family: var(--font-primary);
     font-weight: 600;
     color: white;
-    margin-top: -110px;
+    margin-top: -103px;
     text-align: right;
 }
 
@@ -106,7 +106,7 @@ h1, h2, h3 {
     font-family: var(--font-primary);
     font-weight: 600;
     text-align: right;
-    top: -80px;
+    top: -75px;
     color: white;
     position: relative;
 }
