@@ -1,14 +1,18 @@
-document.querySelector('.footer-image-4').addEventListener('click', function() {
-    window.open('https://instagram.com/yourpage', '_blank');
+document.querySelector('.side-image-4').addEventListener('click', function() {
+    window.open('https://www.instagram.com/yagizz_eness?igsh=MTQybTM5ZGhkaTQ4aA%3D%3D&utm_source=qr', '_blank');
 });
 
-document.querySelector('.footer-image-2').addEventListener('click', function() {
+document.querySelector('.side-image-2').addEventListener('click', function() {
     window.open('https://www.linkedin.com/in/ya%C4%9F%C4%B1z-enes-do%C4%9Fan-1b0731295/', '_blank');
 });
 
-document.querySelector('.footer-image-3').addEventListener('click', function() {
+document.querySelector('.side-image-3').addEventListener('click', function() {
     window.open('https://github.com/YENESDGN', '_blank');
 });
+
+document.querySelector('.side-image-5').addEventListener('click', function() {
+    window.location.href = 'mailto:yenesdogan@outlook.com.tr';
+})
 
 const selectors = [
     '.welcome-text',

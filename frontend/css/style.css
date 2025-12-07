@@ -2,8 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    background: radial-gradient(circle, #061048 0%, #0b0b0b 100%);
     padding-left: 100px;
-    background: linear-gradient(to bottom right, #1f1f24 0%, #1f1f1f 100%);
     overflow-x: hidden;
 }
 
@@ -29,6 +29,14 @@ body {
     }
 }
 
+:root {
+    --font-body: 'Space Mono', monospace;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase; /* Bu font büyük harfte harika durur */
+}
+
 .name-container {
     display: flex;
     flex-direction: column;
@@ -38,6 +46,22 @@ body {
     border-left-width: 200px;
     z-index: 2;
     right: 250px;
+}
+
+.name-cont {
+    background-color: #021125;
+    padding: 150px;
+    box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
+    height: 200px;
+    margin-bottom: 0px;
+}
+
+.name {
+    color: white;
+    font-family: var(--font-body);
+    font-size: 5em;
+    font-weight: 600;
+    text-align: right;
 }
 
 .navbar {
@@ -54,8 +78,8 @@ body {
     text-decoration: none;
     color: white;
     font-size: 1.2em;
-    font-family: Rockwell,Courier Bold,Courier,Georgia,Times,Times New Roman,serif;
-    font-weight: 600;
+    font-family: var(--font-body);
+    font-weight: 500;
     padding: 10px;
     border: 2px solid white;
     border-radius: 50px;
@@ -71,28 +95,16 @@ body {
 
 .job-title {
     font-size: 1.5em;
-    font-family: Rockwell,Courier Bold,Courier,Georgia,Times,Times New Roman,serif;
+    font-family: var(--font-body);
     font-weight: 600;
     color: white;
     margin-top: -105px;
     text-align: right;
 }
-/*Welcome Text*/
-.welcome-text {
-    text-align: center;
-    font-size: 2em;
-    font-family: Rockwell,Courier Bold,Courier,Georgia,Times,Times New Roman,serif;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 100px;
-    margin-top: 100px;
-    z-index: 2;
-    position: relative;
-}
 
 .fs-ds-dev {
     font-size: 1.5em;
-    font-family: Rockwell,Courier Bold,Courier,Georgia,Times,Times New Roman,serif;
+    font-family: var(--font-body);
     font-weight: 600;
     text-align: right;
     top: -67px;
@@ -114,35 +126,17 @@ body {
     object-position: right;
 }
 
-.name-cont {
-    background: #2E4057;
-    padding: 150px;
-    box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
-    height: 200px;
-    margin-bottom: 0px;
-    background: radial-gradient(circle, #2E4057 0%, #1f1f1f 100%);
-}
-
-.name {
-    color: white;
-    font-family: Rockwell,Courier Bold,Courier,Georgia,Times,Times New Roman,serif;
-    font-size: 5em;
-    font-weight: 600;
-    text-align: right;
-}
-
 /*About Me*/
-
 .about_me {
     border: 1.5px solid white;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
     border-top-style: none;
     border-bottom-style: none;
-    margin-top: 200px;
     width: 85%;
     margin-left: 150px;
     position: relative;
+    top: 100px
 }
 
 .about_me_title {
@@ -153,7 +147,8 @@ body {
     margin-top: 25px;
     font-size: 5em;
     font-weight: 600;
-    font-family: Rockwell,Courier Bold,Courier,Georgia,Times,Times New Roman,serif;    color: white;
+    font-family: var(--font-body);
+    color: white;
 }
 
 .about_me_context {
@@ -161,8 +156,9 @@ body {
     margin-left: 15px;
     margin-right: 5px;
     font-size: 2em;
-    font-weight: 450;
-    font-family: Rockwell,Courier Bold,Courier,Georgia,Times,Times New Roman,serif;    color: white;
+    font-weight: 400;
+    font-family: var(--font-body);
+    color: white;
 }
 
 .images-section {
@@ -175,7 +171,7 @@ body {
 
 .images_description {
     text-align: center;
-    font-family: Rockwell,Courier Bold,Courier,Georgia,Times,Times New Roman,serif;
+    font-family: var(--font-body);
     font-size: 3em;
     font-weight: 600;
     color: white;
@@ -189,6 +185,7 @@ body {
     gap: 20px;
     padding: 0px;
     margin-top: 100px;
+    margin-bottom: 50px;
 }
 
 .tech-images img {
@@ -220,8 +217,8 @@ body {
 /*Projeler Bölümü*/
 .projects-section {
     padding: 20px 0;
-    margin-left: 100px;
-    margin-right: 100px;
+    background-color: #021125;
+    margin-left: -20px;
 }
 
 .section-title {
@@ -236,6 +233,9 @@ body {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 30px;
+    padding: 50px;
+    margin-top: -10px;
+    margin-bottom: -30px;
 }
 
 /*Link Sarmalayıcı*/
@@ -248,7 +248,7 @@ body {
 /*Proje Kartı*/
 .project-card {
     position: relative;
-    background-color: #2E4057;
+    background-color: #063676;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
@@ -293,7 +293,7 @@ body {
     transform: scale(1.1);
 }
 
-.footer {
+.side-bar {
     text-align: center;
     font-size: 1.2em;
     font-weight: 600;
@@ -307,7 +307,7 @@ body {
     border-radius: 2px;
 }
 
-.footer-image {
+.side-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -320,9 +320,10 @@ body {
     z-index: -1;
 }
 
-.footer-image-2,
-.footer-image-3,
-.footer-image-4 {
+.side-image-2,
+.side-image-3,
+.side-image-4,
+.side-image-5 {
     position: static;
     width: 50px;
     height: 50px;
@@ -332,7 +333,7 @@ body {
     cursor: pointer;
 }
 
-.footer-images {
+.side-images {
     justify-content: center;
     flex-direction: column;
     height: 100%;
@@ -342,32 +343,33 @@ body {
     padding: 20px 0;
 }
 
-.footer-image-2:hover,
-.footer-image-3:hover,
-.footer-image-4:hover{
+.side-image-2:hover,
+.side-image-3:hover,
+.side-image-4:hover,
+.side-image-5:hover {
     transition: all 0.3s ease;
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.footer-image-2 {
+.side-image-2 {
     filter: brightness(1);
 }
 
-.footer-image-2:hover {
+.side-image-2:hover {
     filter: brightness(1.2) drop-shadow(0 0 10px #0077b5);
 }
 
-.footer-image-3:hover {
+.side-image-3:hover {
     filter: brightness(1.2) drop-shadow(0 0 10px #4000ff);
 }
 
-.footer-image-4:hover {
+.side-image-4:hover {
     filter: brightness(1.2) drop-shadow(0 0 10px #ff00bb);
 }
 
-.projects-grid{
-    margin-top: 15%;
+.side-image-5:hover {
+    filter: brightness(1.2) drop-shadow(0 0 10px #ff0000);
 }
 @media (max-width: 1024px) {
     .projects-grid {
