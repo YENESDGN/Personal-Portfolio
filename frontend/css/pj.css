@@ -1,12 +1,8 @@
-body {
-    font-family: var(--font-primary);
-    margin: 0;
-    padding: 0;
-    background: radial-gradient(circle, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
-}
-
+/* =========================================
+   1. DEĞİŞKENLER & TEMEL AYARLAR
+   ========================================= */
 :root {
-    /* Renkler(Colors) */
+    /* Renkler */
     --color-bg-primary: #061048;
     --color-bg-secondary: #0b0b0b;
     --color-bg-card: #063676;
@@ -15,44 +11,162 @@ body {
     --color-text: white;
     --color-border: white;
 
-    /* Font Büyüklükleri - Topoğrafya (Font Size - Typography) */
+    /* Tipografi */
     --font-primary: 'Space Mono', monospace;
+    
+    /* Animasyon */
+    --transition-std: all 0.3s ease;
+}
+
+body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: var(--color-text);
 }
 
 h1, h2, h3 {
-    text-transform: uppercase; /* Bu font büyük harfte harika durur */
+    text-transform: uppercase;
 }
 
-/* Top Bar */
+/* =========================================
+   2. ANİMASYONLAR
+   ========================================= */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   3. TOP BAR (ÜST BÖLÜM)
+   ========================================= */
 .top-bar {
     width: 100%;
-    top: 0;
     height: 500px;
     background-color: var(--color-bg-section);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     padding: 0 20px;
+    position: relative; /* top: 0 yerine relative daha güvenli */
 }
 
-/* Go-Back Button */
+.top-bar-image img {
+    position: absolute;
+    right: 150px;
+    top: 150px;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    box-shadow: 10px 10px rgba(255, 255, 255, 0.32);
+    transition: var(--transition-std);
+    animation: slideIn 1s ease forwards;
+    object-fit: cover;
+}
+
+/* =========================================
+   4. BOTTOM BAR (ALT BÖLÜM)
+   ========================================= */
+.bottom-bar {
+    width: 100%;
+    height: 500px;
+    background-color: var(--color-bg-section);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 500px;
+    margin-bottom: -100px;
+    position: relative;
+}
+
+.bottom-bar-image {
+    position: absolute;
+    left: 75px;
+    margin-bottom: 250px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid var(--color-border);
+    box-shadow: 10px 10px rgba(255, 255, 255, 0.32);
+}
+
+.bottom-bar-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-std);
+    animation: slideIn 1s ease forwards;
+}
+
+/* =========================================
+   5. AÇIKLAMA METİNLERİ
+   ========================================= */
+/* Ortak özellikler */
+.image-desc, 
+.image-desc-1 {
+    position: absolute;
+    font-family: var(--font-primary);
+    font-size: 1.5em;
+    color: var(--color-text);
+    font-weight: bold; /* color-accent font-weight için geçerli değil, bold yaptım */
+    transition: var(--transition-std);
+    animation: slideIn 1s ease forwards;
+}
+
+.image-desc {
+    top: 75px;
+    left: 150px;
+}
+
+.image-desc-1 {
+    bottom: -5%;
+    right: -200%; /* Bu değer çok yüksek, dikkatli olunmalı */
+}
+
+/* =========================================
+   6. BAĞLANTI ÇİZGİSİ & UI ELEMENTLERİ
+   ========================================= */
+.connection::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 500px;
+    height: 500px;
+    border-left: 3px solid var(--color-accent);
+    box-shadow: 0px 0px 10px var(--color-accent);
+    transform: translateX(-50%);
+}
+
 .go-back {
     color: var(--color-text);
     text-decoration: none;
     font-size: 1em;
-    margin: 20px;
-    margin-top: -375px;
-    padding: 10px;
+    margin-top: -415px;
     position: relative;
     border-radius: 25px;
-    transition: all 0.3s ease;
+    padding: 0 10px;
+    transition: var(--transition-std);
     font-weight: bold;
     border: 2px solid var(--color-accent);
     display: inline-block;
+    text-align: left;
+    cursor: pointer;
+}
+
+.go-back p {
+    margin: 10px;
 }
 
 .go-back:hover {
     background-color: var(--color-accent);
-    transition: all 0.3s ease;
-    cursor: pointer;
 }
