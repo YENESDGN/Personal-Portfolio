@@ -14,8 +14,23 @@
     /* Tipografi */
     --font-primary: 'Space Mono', monospace;
     
+    /* Spacing */
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 5rem;
+    
+    /* Container */
+    --container-max: 1400px;
+    --container-padding: clamp(1rem, 5vw, 3rem);
+    
     /* Animasyon */
     --transition-std: all 0.3s ease;
+    --transition-slow: all 0.8s ease;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 body {
@@ -24,12 +39,19 @@ body {
     padding: 0;
     background: radial-gradient(circle, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
     overflow-x: hidden;
-    overflow-y: auto;
     color: var(--color-text);
+    line-height: 1.6;
 }
 
 h1, h2, h3 {
     text-transform: uppercase;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* =========================================
@@ -38,7 +60,18 @@ h1, h2, h3 {
 @keyframes slideIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
     }
     to {
         opacity: 1;
@@ -47,126 +80,283 @@ h1, h2, h3 {
 }
 
 /* =========================================
-   3. TOP BAR (ÜST BÖLÜM)
+   3. GERİ DÖN BUTONU
    ========================================= */
-.top-bar {
+.go-back-container {
     width: 100%;
-    height: 500px;
+    padding: 20px 20px;
     background-color: var(--color-bg-section);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    position: relative; /* top: 0 yerine relative daha güvenli */
-}
-
-.top-bar-image img {
-    position: absolute;
-    right: 150px;
-    top: 150px;
-    width: 500px;
-    height: 500px;
-    background-color: white;
-    border: 1px solid var(--color-border);
-    box-shadow: 10px 10px rgba(255, 255, 255, 0.32);
-    transition: var(--transition-std);
-    animation: slideIn 1s ease forwards;
-    object-fit: cover;
-}
-
-/* =========================================
-   4. BOTTOM BAR (ALT BÖLÜM)
-   ========================================= */
-.bottom-bar {
-    width: 100%;
-    height: 500px;
-    background-color: var(--color-bg-section);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    margin-top: 500px;
-    margin-bottom: -100px;
-    position: relative;
-}
-
-.bottom-bar-image {
-    position: absolute;
-    left: 75px;
-    margin-bottom: 250px;
-    width: 500px;
-    height: 500px;
-    border: 1px solid var(--color-border);
-    box-shadow: 10px 10px rgba(255, 255, 255, 0.32);
-}
-
-.bottom-bar-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-std);
-    animation: slideIn 1s ease forwards;
-}
-
-/* =========================================
-   5. AÇIKLAMA METİNLERİ
-   ========================================= */
-/* Ortak özellikler */
-.image-desc, 
-.image-desc-1 {
-    position: absolute;
-    font-family: var(--font-primary);
-    font-size: 1.5em;
-    color: var(--color-text);
-    font-weight: bold; /* color-accent font-weight için geçerli değil, bold yaptım */
-    transition: var(--transition-std);
-    animation: slideIn 1s ease forwards;
-}
-
-.image-desc {
-    top: 75px;
-    left: 150px;
-}
-
-.image-desc-1 {
-    bottom: -5%;
-    right: -200%; /* Bu değer çok yüksek, dikkatli olunmalı */
-}
-
-/* =========================================
-   6. BAĞLANTI ÇİZGİSİ & UI ELEMENTLERİ
-   ========================================= */
-.connection::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 500px;
-    height: 500px;
-    border-left: 3px solid var(--color-accent);
-    box-shadow: 0px 0px 10px var(--color-accent);
-    transform: translateX(-50%);
 }
 
 .go-back {
     color: var(--color-text);
     text-decoration: none;
-    font-size: 1em;
-    margin-top: -415px;
-    position: relative;
+    font-size: 1rem;
     border-radius: 25px;
-    padding: 0 10px;
+    padding: 10px 25px;
     transition: var(--transition-std);
     font-weight: bold;
     border: 2px solid var(--color-accent);
-    display: inline-block;
-    text-align: left;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .go-back p {
-    margin: 10px;
+    margin: 0;
 }
 
-.go-back:hover {
+.go-back:hover,
+.go-back:focus-visible {
     background-color: var(--color-accent);
+    transform: translateX(-5px);
+    box-shadow: 0 0 15px rgba(12, 93, 155, 0.5);
+}
+
+/* =========================================
+   4. TOP BAR (ÜST BÖLÜM) - GRID LAYOUT
+   ========================================= */
+.top-bar {
+    width: 100%;
+    min-height: clamp(150px, 22vh, 240px);
+    background-color: var(--color-bg-section);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem var(--container-padding);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    align-items: center;
+    overflow: visible;
+    position: relative;
+    z-index: 2;
+}
+
+.top-bar-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+}
+
+.top-bar-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideIn 1s ease forwards;
+}
+
+.top-bar-image img {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    box-shadow: 10px 10px rgba(255, 255, 255, 0.32);
+    object-fit: cover;
+    transition: var(--transition-std);
+    transform: translateY(25%);
+    position: relative;
+    z-index: 3;
+}
+
+/* =========================================
+   5. BAĞLANTI ÇİZGİSİ
+   ========================================= */
+.connection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    height: 600px;    z-index: 1;}
+
+.connection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--color-accent);
+    box-shadow: 0px 0px 15px var(--color-accent);
+}
+
+/* Üst ve alt bağlantı noktaları */
+.connection::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px var(--color-accent);
+}
+
+/* =========================================
+   6. BOTTOM BAR (ALT BÖLÜM) - GRID LAYOUT
+   ========================================= */
+.bottom-bar {
+    width: 100%;
+    min-height: clamp(150px, 22vh, 240px);
+    background-color: var(--color-bg-section);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.bottom-bar-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: var(--transition-slow);
+}
+
+.bottom-bar-image.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bottom-bar-image img {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    border: 1px solid var(--color-border);
+    box-shadow: 10px 10px rgba(255, 255, 255, 0.32);
+    object-fit: cover;
+    transition: var(--transition-std);
+    position: relative;
+    transform: translateY(-25%);
+    position: relative;
+    z-index: 3;
+}
+
+.bottom-bar-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px;
+    transform: translateX(-50px);
+}
+
+/* =========================================
+   7. AÇIKLAMA METİNLERİ
+   ========================================= */
+.image-desc, 
+.image-desc-1 {
+    font-family: var(--font-primary);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--color-text);
+    font-weight: bold;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.image-desc {
+    animation: slideIn 1s ease forwards;
+}
+
+.image-desc-1 {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: var(--transition-slow);
+}
+
+.image-desc-1.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   8. RESPONSIVE DESIGN
+   ========================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .top-bar,
+    .bottom-bar {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: var(--spacing-md) var(--container-padding);
+        gap: var(--spacing-md);
+    }
+    
+    .top-bar-image,
+    .bottom-bar-image {
+        order: -1;
+    }
+    
+    .connection {
+        height: 200px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 2rem;
+        --spacing-xl: 3rem;
+    }
+    
+    .top-bar-image img,
+    .bottom-bar-image img {
+        max-width: 100%;
+    }
+    
+    .image-desc,
+    .image-desc-1 {
+        font-size: 1rem;
+    }
+    
+    .connection {
+        height: 150px;
+    }
+    
+    .go-back {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    :root {
+        --spacing-md: 1rem;
+        --spacing-lg: 1.5rem;
+    }
+    
+    .top-bar,
+    .bottom-bar {
+        padding: var(--spacing-sm);
+    }
+    
+    .top-bar-content,
+    .bottom-bar-content {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* =========================================
+   9. ERİŞİLEBİLİRLİK
+   ========================================= */
+*:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

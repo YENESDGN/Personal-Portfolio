@@ -18,7 +18,6 @@
 body {
     margin: 0;
     padding: 0;
-    padding-left: 100px; /* Sidebar için boşluk */
     font-family: sans-serif;
     background: radial-gradient(circle, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
     overflow-x: hidden;
@@ -41,6 +40,7 @@ h1, h2, h3 {
     z-index: 1000;
     text-align: center;
     border-radius: 2px;
+    overflow: hidden;
 }
 
 .side-image {
@@ -76,64 +76,95 @@ h1, h2, h3 {
 }
 
 /* Sidebar Hover Efektleri */
-.side-image-2:hover { filter: brightness(1.2) drop-shadow(0 0 10px #0077b5); transform: scale(1.1); }
-.side-image-3:hover { filter: brightness(1.2) drop-shadow(0 0 10px #4000ff); transform: scale(1.1); }
-.side-image-4:hover { filter: brightness(1.2) drop-shadow(0 0 10px #ff00bb); transform: scale(1.1); }
-.side-image-5:hover { filter: brightness(1.2) drop-shadow(0 0 10px #ff0000); transform: scale(1.1); }
+.side-image-2:hover,
+.side-image-2:focus-visible { 
+    filter: brightness(1.2) drop-shadow(0 0 10px #0077b5); 
+    transform: scale(1.1); 
+}
+
+.side-image-3:hover,
+.side-image-3:focus-visible { 
+    filter: brightness(1.2) drop-shadow(0 0 10px #4000ff); 
+    transform: scale(1.1); 
+}
+
+.side-image-4:hover,
+.side-image-4:focus-visible { 
+    filter: brightness(1.2) drop-shadow(0 0 10px #ff00bb); 
+    transform: scale(1.1); 
+}
+
+.side-image-5:hover,
+.side-image-5:focus-visible { 
+    filter: brightness(1.2) drop-shadow(0 0 10px #ff0000); 
+    transform: scale(1.1); 
+}
 
 /* =========================================
    3. HERO SECTION (İSİM & GİRİŞ)
    ========================================= */
 .name-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    width: 100%;
     overflow: hidden;
-    width: 120%;
-    right: 250px;
-    z-index: 2;
 }
 
 .name-cont {
     background-color: var(--color-bg-section);
-    padding: 150px;
+    padding: clamp(2rem, 8vw, 5rem) clamp(1rem, 5vw, 3rem);
     box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
-    height: 200px;
-    margin-bottom: 0;
+    min-height: 400px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+}
+
+.name-cont-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 2rem;
 }
 
 .name {
     color: white;
     font-family: var(--font-primary);
-    font-size: 5em;
+    font-size: clamp(2rem, 5vw, 5rem);
     font-weight: 600;
     text-align: right;
+    line-height: 1.2;
+    margin: 0;
 }
 
 .navbar {
     position: absolute;
-    top: 100px;
-    right: 153px;
+    top: 2rem;
+    right: 2rem;
     display: flex;
-    gap: 30px;
-    z-index: 3;
+    gap: 1.5rem;
+    z-index: 10;
+    flex-wrap: wrap;
 }
 
 .nav-link {
     text-decoration: none;
     color: white;
-    font-size: 1.2em;
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
     font-family: var(--font-primary);
-    font-weight: 500;   
-    padding: 10px;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
     border: 2px solid white;
     border-radius: 50px;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:focus-visible {
     background-color: var(--color-accent);
     box-shadow: 0 0 10px rgba(12, 93, 155, 0.7);
+    transform: translateY(-2px);
 }
 
 .job-title, .fs-ds-dev {
@@ -141,102 +172,123 @@ h1, h2, h3 {
     font-weight: 600;
     color: white;
     text-align: right;
-    position: relative;
+    margin: 0.5rem 0;
 }
 
 .job-title {
-    font-size: 1.5em;
-    margin-top: -103px;
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 .fs-ds-dev {
-    font-size: 1.5em;
-    top: -75px;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.job-title,
+.fs-ds-dev {
+    margin: 0px;
+}
+
+.welcome-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .welcome-image {
-    width: 500px;
-    height: 450px;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 10 / 9;
     border-radius: 5%;
     object-fit: cover;
-    object-position: right;
-    margin-top: -136px;
-    position: absolute;
-    left: 350px;
+    object-position: center;
     box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.2);
     border: 10px solid rgba(255, 255, 255, 0.5);
-    opacity: 0.65;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+}
+
+.welcome-image:hover {
+    opacity: 1;
+    transform: scale(1.02);
 }
 
 /* =========================================
    4. ABOUT ME (HAKKIMDA)
    ========================================= */
 .about_me {
-    border: 1.5px solid white;
+    max-width: 1500px;
+    margin: 5rem auto;
+    padding: 3rem clamp(1rem, 5vw, 3rem);
+    border-left: 1.5px solid white;
+    border-right: 1.5px solid white;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
-    border-top-style: none;
-    border-bottom-style: none;
-    width: 85%;
-    margin-left: 150px;
-    position: relative;
-    top: 100px;
 }
 
 .about_me_title {
-    font-size: 5em;
+    font-size: clamp(2rem, 5vw, 5rem);
     font-weight: 600;
     font-family: var(--font-primary);
     color: white;
-    margin: 25px 0 0 15px;
+    margin: 0 0 1.5rem 0;
 }
 
 .about_me_context {
-    font-size: 2em;
+    font-size: clamp(1rem, 2vw, 2rem);
     font-weight: 400;
     font-family: var(--font-primary);
     color: white;
-    margin: 0 5px 0 15px;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* =========================================
    5. TECH STACK (TEKNİK YETENEKLER)
    ========================================= */
 .images-section {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    max-width: 1400px;
+    margin: 5rem auto;
+    padding: 3rem clamp(1rem, 5vw, 3rem);
 }
 
 .images_description {
     text-align: center;
     font-family: var(--font-primary);
-    font-size: 3em;
+    font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 600;
     color: white;
-    margin-bottom: -175px;
-    margin-top: 150px;
+    margin-bottom: 3rem;
+}
+
+.images_description h3 {
+    margin: 0;
 }
 
 .tech-images {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 5.3rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.tech-images > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tech-images img {
-    margin-top: 25px;
-    width: 255px;
+    width: 140%;
+    max-width: 400px;
     height: auto;
-    padding: 20px;
+    padding: 1rem;
     transition: all 0.3s ease;
 }
 
 .tech-images img:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.05);
     box-shadow: 
         rgba(250, 250, 250, 0.4) 0px 5px, 
         rgba(255, 255, 255, 0.3) 0px 10px, 
@@ -249,18 +301,19 @@ h1, h2, h3 {
    6. PROJECTS (PROJELER)
    ========================================= */
 .projects-section {
-    padding: 20px 0;
+    width: 100%;
+    padding: 3rem 0;
     background-color: var(--color-bg-section);
-    margin-left: -20px; /* Body padding'i dengelemek için */
 }
 
 .projects-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-right: 145px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding: 50px;
-    margin-top: -10px;
-    margin-bottom: -30px;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 3rem;
+    padding: 2rem clamp(1rem, 5vw, 3rem);
 }
 
 .project-card-link {
@@ -283,7 +336,7 @@ h1, h2, h3 {
 }
 
 .card-image img {
-    width: 100%;
+    width: 120%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -335,15 +388,93 @@ h1, h2, h3 {
     }
 }
 
+/* Tablet */
 @media (max-width: 1024px) {
+    body {
+        padding-left: 80px;
+    }
+    
+    .name-cont {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 3rem 2rem;
+    }
+    
+    .name-cont-text {
+        padding-right: 0;
+    }
+    
+    .name,
+    .job-title,
+    .fs-ds-dev {
+        text-align: center;
+    }
+    
+    .welcome-image-container {
+        order: -1;
+    }
+    
+    .navbar {
+        position: static;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+    
+    .tech-images {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
+    body {
+        padding-left: 0;
+    }
+    
+    .side-bar {
+        width: 100%;
+        height: 60px;
+        bottom: 0;
+        top: auto;
+    }
+    
+    .side-images {
+        flex-direction: row;
+        padding: 10px 20px;
+        gap: 15px;
+    }
+    
+    .name-cont {
+        padding: 2rem 1rem;
+    }
+    
+    .navbar {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .about_me {
+        margin: 3rem 1rem;
+        padding: 2rem 1rem;
+    }
+    
+    .tech-images {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+    
+    .projects-section {
+        margin-left: 0;
+        padding-bottom: 80px;
+    }
+    
     .projects-grid {
         grid-template-columns: 1fr;
-        grid: 20px;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
     }
 }

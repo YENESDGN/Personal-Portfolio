@@ -1,48 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <meta name="description" content="Proje detayları ve açıklamaları">
+    <title>Proje Detayları</title>
     <link rel="stylesheet" href="css/pj.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <section class="top-bar" aria-label="Üst menü">
-        <div class="go-back" onclick="history.back()">
+    <!-- Geri dönüş butonu -->
+    <div class="go-back-container">
+        <button class="go-back" onclick="history.back()" aria-label="Önceki sayfaya dön">
             <p>Geri Dön</p>
+        </button>
+    </div>
+
+    <!-- Üst bölüm - Grid layout -->
+    <section class="top-bar" aria-label="Proje açıklaması">
+        <div class="top-bar-content">
+            <p class="image-desc">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Eligendi veniam omnis earum cupiditate ex dolore nesciunt vero rerum minus temporibus,
+                non reiciendis iusto natus, repellat enim iure accusantium ullam sed!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, maiores?
+                Sunt, deleniti odio non fuga aliquid, atque veritatis obcaecati molestiae illum
+                dolores magnam vitae modi velit? Deleniti dolorem voluptatem sint.
+            </p>
         </div>
         <div class="top-bar-image">
-            <img src="assets/images/footer_image.jpeg" alt="Top Bar Image">
-            <p class="image-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>
-                Eligendi veniam omnis earum <br>
-                cupiditate ex dolore nesciunt vero rerum minus temporibus, <br>
-                non reiciendis iusto natus, repellat enim iure accusantium <br>
-                 ullam sed! Lorem ipsum dolor sit amet consectetur <br>
-                adipisicing elit. Iure, maiores? Sunt, deleniti odio non <br> 
-                fuga aliquid, atque veritatis obcaecati molestiae illum <br>
-                dolores magnam vitae modi velit? <br>
-                Deleniti dolorem voluptatem sint.</p>
+            <img src="assets/images/footer_image.jpeg" alt="Proje görseli 1" loading="lazy">
         </div>
     </section>
 
-    <div class="connection"></div>
+    <!-- Bağlantı çizgisi -->
+    <div class="connection" aria-hidden="true"></div>
 
-    <section class="bottom-bar">
+    <!-- Alt bölüm - Grid layout -->
+    <section class="bottom-bar" aria-label="Proje detayları">
         <div class="bottom-bar-image">
-            <img src="assets/images/footer_image.jpeg" alt="Bottom Bar Image">
-            <p class="image-desc-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>
-                Eligendi veniam omnis earum <br>
-                cupiditate ex dolore nesciunt vero rerum minus temporibus, <br>
-                non reiciendis iusto natus, repellat enim iure accusantium <br>
-                 ullam sed! Lorem ipsum dolor sit amet consectetur <br>
-                adipisicing elit. Iure, maiores? Sunt, deleniti odio non <br> 
-                fuga aliquid, atque veritatis obcaecati molestiae illum <br>
-                dolores magnam vitae modi velit? <br>
-                Deleniti dolorem voluptatem sint.</p>
+            <img src="assets/images/footer_image.jpeg" alt="Proje görseli 2" loading="lazy">
+        </div>
+        <div class="bottom-bar-content">
+            <p class="image-desc-1">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Eligendi veniam omnis earum cupiditate ex dolore nesciunt vero rerum minus temporibus,
+                non reiciendis iusto natus, repellat enim iure accusantium ullam sed!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, maiores?
+                Sunt, deleniti odio non fuga aliquid, atque veritatis obcaecati molestiae illum
+                dolores magnam vitae modi velit? Deleniti dolorem voluptatem sint.
+            </p>
         </div>
     </section>
-</body>
+
     <script src="js/projects.js"></script>
+</body>
 </html>
