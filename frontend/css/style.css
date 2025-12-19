@@ -200,7 +200,7 @@ h1, h2, h3 {
     aspect-ratio: 10 / 9;
     border-radius: 5%;
     object-fit: cover;
-    object-position: center;
+    object-position: right;
     box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.2);
     border: 10px solid rgba(255, 255, 255, 0.5);
     opacity: 0.85;
