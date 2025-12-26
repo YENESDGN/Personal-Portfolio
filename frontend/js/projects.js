@@ -1,5 +1,5 @@
 // Scroll animasyonu için elemanlar
-const animatedElements = document.querySelectorAll('.bottom-bar-image, .image-desc-1');
+const animatedElements = document.querySelectorAll('.bottom-bar-image, .image-desc-1, .toGitHub-content, .github-link');
 let ticking = false;
 
 // Intersection Observer API kullanarak performanslı scroll animasyonu
@@ -57,50 +57,67 @@ window.addEventListener('beforeunload', () => {
 });
 
 
-// Proje verilerini backend'den çekme
 document.addEventListener('DOMContentLoaded', async () => {
-    //URL'den proje ID'sini alma
-    const urlParams = new URLSearchParams(window.location.search);
-    const projectId = urlParams.get('id');
+    console.log('projects.js yüklendi');
     
-    if (projectId) {
-        try {
-            const response = await fetch(`/api/projects/${projectId}`);
-
-            if (!response.ok) {
-                throw new Error('Proje verisi bulunamadı.');
-            }
-
-            const project = await response.json();
-
-            //Proje bilgilerini sayfaya yerleştirme
-            updateProjectContent(project);
-        } catch (error) {
-            console.error('Hata:', error);
-            alert('Proje verisi yüklenirken bir hata oluştu.');
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+        
+        console.log('Proje ID:', projectId);
+        
+        if (!projectId) {
+            console.error('Proje ID bulunamadı');
+            return;
         }
+        
+        const response = await fetch(`/api/projects/${projectId}`);
+        console.log('Response status:', response.status);
+        
+        if (!response.ok) throw new Error('Proje bulunamadı');
+        
+        const project = await response.json();
+        console.log('Proje verisi:', project);
+        
+        // Description 1
+        const desc1Element = document.querySelector('.image-desc');
+        console.log('desc1Element:', desc1Element);
+        if (desc1Element) {
+            desc1Element.textContent = project.description;
+        }
+        
+        // Description 2
+        const desc2Element = document.querySelector('.image-desc-1');
+        console.log('desc2Element:', desc2Element);
+        if (desc2Element) {
+            desc2Element.textContent = project.description2;
+        }
+        
+        // Image 1
+        const image1Element = document.querySelector('.top-bar-image img');
+        console.log('image1Element:', image1Element);
+        if (image1Element) {
+            image1Element.src = project.image_url;
+            image1Element.alt = project.title;
+        }
+        
+        // Image 2
+        const image2Element = document.querySelector('.bottom-bar-image img');
+        console.log('image2Element:', image2Element);
+        if (image2Element) {
+            image2Element.src = project.image_url2;
+            image2Element.alt = project.title;
+        }
+        
+        //GitHub Link
+        document.querySelectorAll('.github-link a, .toGitHub-content a').forEach(link => {
+            if (project.github_url) {
+                link.href = project.github_url;
+            }
+        });
+
+
+    } catch (error) {
+        console.error('Proje detayları yüklenemedi:', error);
     }
 });
-
-function updateProjectContent(project) {
-    const titleElement = document.querySelector('.image-desc-1 h3');
-    if (titleElement) {
-        titleElement.textContent = project.title;
-    }
-    
-    const desc1Element = document.querySelector('.image-desc-1 p');
-    if (desc1Element) {
-        desc1Element.textContent = project.description;  // 'description1' değil 'description'
-    }
-    
-    const desc2Elements = document.querySelectorAll('.image-desc-1 p');
-    if (desc2Elements.length > 1) {
-        desc2Elements[1].textContent = project.description2;
-    }
-    
-    const imageElement = document.querySelector('.bottom-bar-image img');
-    if (imageElement) {
-        imageElement.src = project.image_url;
-        imageElement.alt = project.title;
-    }
-}

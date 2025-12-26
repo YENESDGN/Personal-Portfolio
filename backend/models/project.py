@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Text
-from app.database import Base
+from backend.app.database import Base
 
 
 class Project(Base):
@@ -10,3 +10,5 @@ class Project(Base):
     description = Column(Text)
     description2 = Column(Text)
     image_url = Column(String)
+    image_url2 = Column(String, nullable=True)
+    github_url = Column(String, nullable=True)

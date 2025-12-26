@@ -28,6 +28,26 @@ h1, h2, h3 {
     text-transform: uppercase;
 }
 
+
+/* Animasyon uygulanacak elementlerin başlangıç hali */
+.welcome-text,
+.images_description,
+.tech-images, 
+.about_me,
+.about-me-content-grid,
+.projects-section,
+.projects-grid {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+/* Görünür olduklarında eklenecek sınıf */
+.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* =========================================
    2. SIDEBAR (SOL MENÜ)
    ========================================= */
@@ -223,6 +243,7 @@ h1, h2, h3 {
     border-right: 1.5px solid white;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
+    margin-top: 10%;
 }
 
 .about_me_title {
@@ -307,9 +328,9 @@ h1, h2, h3 {
 }
 
 .projects-grid {
-    max-width: 1400px;
+    max-width: 1650px;
     margin: 0 auto;
-    margin-right: 145px;
+    margin-right: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 3rem;
@@ -336,14 +357,13 @@ h1, h2, h3 {
 }
 
 .card-image img {
-    width: 120%;
-    height: 100%;
+    width: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
 .card-info {
-    padding: 15px;
+    padding: 5px;
     text-align: center;
 }
 
@@ -356,12 +376,8 @@ h1, h2, h3 {
 
 /* Proje Kartı Hover */
 .project-card-link:hover .project-card {
-    transform: translate3D(10px, 10px, 0);
+    transform: translate3D(3px, 3px, 0);
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-}
-
-.project-card-link:hover .card-image img {
-    transform: scale(1.1);
 }
 
 /* =========================================
