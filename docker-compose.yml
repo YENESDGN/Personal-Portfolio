@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  portfolio:
+    build: .
+    container_name: portfolio-app
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - DEBUG=false
+      - ALLOWED_ORIGINS=https://yourdomain.com
+      - DATABASE_URL=sqlite:///./portfolio.db
+    volumes:
+      - ./portfolio.db:/app/portfolio.db
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

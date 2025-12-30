@@ -109,10 +109,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             image2Element.alt = project.title;
         }
         
-        //GitHub Link
-        document.querySelectorAll('.github-link a, .toGitHub-content a').forEach(link => {
-            if (project.github_url) {
+        // GitHub Link
+        const githubLinkElement = document.querySelectorAll('.github-link a, .toGitHub-content a');
+        githubLinkElement.forEach(link => {
+            if (link) {
                 link.href = project.github_url;
+                link.target = '_blank';
             }
         });
 
