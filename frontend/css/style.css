@@ -2,390 +2,408 @@
    1. DEĞİŞKENLER & TEMEL AYARLAR
    ========================================= */
 :root {
-    /* Renkler */
-    --color-bg-primary: #061048;
-    --color-bg-secondary: #0b0b0b;
-    --color-bg-card: #063676;
-    --color-bg-section: #021125;
-    --color-accent: rgb(12, 93, 155);
-    --color-text: white;
-    --color-border: white;
+  /* Renkler */
+  --color-bg-primary: #061048;
+  --color-bg-secondary: #0b0b0b;
+  --color-bg-card: #063676;
+  --color-bg-section: #021125;
+  --color-accent: rgb(12, 93, 155);
+  --color-text: white;
+  --color-border: white;
 
-    /* Tipografi */
-    --font-primary: 'Space Mono', monospace;
+  /* Tipografi */
+  --font-primary: "Space Mono", monospace;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background: radial-gradient(circle, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
-    overflow-x: hidden;
-    color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: radial-gradient(
+    circle,
+    var(--color-bg-primary) 0%,
+    var(--color-bg-secondary) 100%
+  );
+  overflow-x: hidden;
+  color: var(--color-text);
 }
 
-h1, h2, h3 {
-    text-transform: uppercase;
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
 }
-
 
 /* Animasyon uygulanacak elementlerin başlangıç hali */
 .welcome-text,
 .images_description,
-.tech-images, 
+.tech-images,
 .about_me,
 .about-me-content-grid,
 .projects-section,
 .projects-grid {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
 }
 
 /* Görünür olduklarında eklenecek sınıf */
 .reveal {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* =========================================
    2. SIDEBAR (SOL MENÜ)
    ========================================= */
 .side-bar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 80px;
-    z-index: 1000;
-    text-align: center;
-    border-radius: 2px;
-    overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 80px;
+  z-index: 1000;
+  text-align: center;
+  border-radius: 2px;
+  overflow: hidden;
 }
 
 .side-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.8;
-    z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.8;
+  z-index: -1;
 }
 
 .side-images {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    gap: 30px;
-    padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 30px;
+  padding: 20px 0;
 }
 
-.side-image-2, .side-image-3, .side-image-4, .side-image-5 {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    filter: brightness(1);
+.side-image-2,
+.side-image-3,
+.side-image-4,
+.side-image-5 {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  filter: brightness(1);
 }
 
 /* Sidebar Hover Efektleri */
 .side-image-2:hover,
-.side-image-2:focus-visible { 
-    filter: brightness(1.2) drop-shadow(0 0 10px #0077b5); 
-    transform: scale(1.1); 
+.side-image-2:focus-visible {
+  filter: brightness(1.2) drop-shadow(0 0 10px #0077b5);
+  transform: scale(1.1);
 }
 
 .side-image-3:hover,
-.side-image-3:focus-visible { 
-    filter: brightness(1.2) drop-shadow(0 0 10px #4000ff); 
-    transform: scale(1.1); 
+.side-image-3:focus-visible {
+  filter: brightness(1.2) drop-shadow(0 0 10px #4000ff);
+  transform: scale(1.1);
 }
 
 .side-image-4:hover,
-.side-image-4:focus-visible { 
-    filter: brightness(1.2) drop-shadow(0 0 10px #ff00bb); 
-    transform: scale(1.1); 
+.side-image-4:focus-visible {
+  filter: brightness(1.2) drop-shadow(0 0 10px #ff00bb);
+  transform: scale(1.1);
 }
 
 .side-image-5:hover,
-.side-image-5:focus-visible { 
-    filter: brightness(1.2) drop-shadow(0 0 10px #ff0000); 
-    transform: scale(1.1); 
+.side-image-5:focus-visible {
+  filter: brightness(1.2) drop-shadow(0 0 10px #ff0000);
+  transform: scale(1.1);
 }
 
 /* =========================================
    3. HERO SECTION (İSİM & GİRİŞ)
    ========================================= */
 .name-container {
-    width: 100%;
-    overflow: hidden;
+  width: 100%;
+  overflow: hidden;
 }
 
 .name-cont {
-    background-color: var(--color-bg-section);
-    padding: clamp(2rem, 8vw, 5rem) clamp(1rem, 5vw, 3rem);
-    box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
-    min-height: 400px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-    align-items: center;
-    position: relative;
+  background-color: var(--color-bg-section);
+  padding: clamp(2rem, 8vw, 5rem) clamp(1rem, 5vw, 3rem);
+  box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
+  min-height: 400px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
 }
 
 .name-cont-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 2rem;
 }
 
 .name {
-    color: white;
-    font-family: var(--font-primary);
-    font-size: clamp(2rem, 5vw, 5rem);
-    font-weight: 600;
-    text-align: right;
-    line-height: 1.2;
-    margin: 0;
+  color: white;
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 600;
+  text-align: right;
+  line-height: 1.2;
+  margin: 0;
 }
 
 .navbar {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    display: flex;
-    gap: 1.5rem;
-    z-index: 10;
-    flex-wrap: wrap;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  z-index: 10;
+  flex-wrap: wrap;
 }
 
 .nav-link {
-    text-decoration: none;
-    color: white;
-    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-    font-family: var(--font-primary);
-    font-weight: 500;
-    padding: 0.75rem 1.5rem;
-    border: 2px solid white;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+  text-decoration: none;
+  color: white;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-family: var(--font-primary);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid white;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-link:hover,
 .nav-link:focus-visible {
-    background-color: var(--color-accent);
-    box-shadow: 0 0 10px rgba(12, 93, 155, 0.7);
-    transform: translateY(-2px);
-}
-
-.job-title, .fs-ds-dev {
-    font-family: var(--font-primary);
-    font-weight: 600;
-    color: white;
-    text-align: right;
-    margin: 0.5rem 0;
-}
-
-.job-title {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-}
-
-.fs-ds-dev {
-    font-size: clamp(1rem, 2vw, 1.5rem);
+  background-color: var(--color-accent);
+  box-shadow: 0 0 10px rgba(12, 93, 155, 0.7);
+  transform: translateY(-2px);
 }
 
 .job-title,
 .fs-ds-dev {
-    margin: 0px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  color: white;
+  text-align: right;
+  margin: 0.5rem 0;
+}
+
+.job-title {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.fs-ds-dev {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.job-title,
+.fs-ds-dev {
+  margin: 0px;
 }
 
 .welcome-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .welcome-image {
-    width: 100%;
-    max-width: 500px;
-    aspect-ratio: 10 / 9;
-    border-radius: 5%;
-    object-fit: cover;
-    object-position: right;
-    box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.2);
-    border: 10px solid rgba(255, 255, 255, 0.5);
-    opacity: 0.85;
-    transition: all 0.3s ease;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 10 / 9;
+  border-radius: 5%;
+  object-fit: cover;
+  object-position: right;
+  box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.2);
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  opacity: 0.85;
+  transition: all 0.3s ease;
 }
 
 .welcome-image:hover {
-    opacity: 1;
-    transform: scale(1.02);
+  opacity: 1;
+  transform: scale(1.02);
 }
 
 /* =========================================
    4. ABOUT ME (HAKKIMDA)
    ========================================= */
 .about_me {
-    max-width: 1500px;
-    margin: 5rem auto;
-    padding: 3rem clamp(1rem, 5vw, 3rem);
-    border-left: 1.5px solid white;
-    border-right: 1.5px solid white;
-    border-top-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    margin-top: 10%;
+  max-width: 1500px;
+  margin: 5rem auto;
+  padding: 3rem clamp(1rem, 5vw, 3rem);
+  border-left: 1.5px solid white;
+  border-right: 1.5px solid white;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  margin-top: 10%;
 }
 
 .about_me_title {
-    font-size: clamp(2rem, 5vw, 5rem);
-    font-weight: 600;
-    font-family: var(--font-primary);
-    color: white;
-    margin: 0 0 1.5rem 0;
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 600;
+  font-family: var(--font-primary);
+  color: white;
+  margin: 0 0 1.5rem 0;
 }
 
 .about_me_context {
-    font-size: clamp(1rem, 2vw, 2rem);
-    font-weight: 400;
-    font-family: var(--font-primary);
-    color: white;
-    line-height: 1.6;
-    margin: 0;
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: 400;
+  font-family: var(--font-primary);
+  color: white;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* =========================================
    5. TECH STACK (TEKNİK YETENEKLER)
    ========================================= */
 .images-section {
-    max-width: 1400px;
-    margin: 5rem auto;
-    padding: 3rem clamp(1rem, 5vw, 3rem);
+  max-width: 1400px;
+  margin: 5rem auto;
+  padding: 3rem clamp(1rem, 5vw, 3rem);
 }
 
 .images_description {
-    text-align: center;
-    font-family: var(--font-primary);
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    font-weight: 600;
-    color: white;
-    margin-bottom: 3rem;
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 600;
+  color: white;
+  margin-bottom: 3rem;
 }
 
 .images_description h3 {
-    margin: 0;
+  margin: 0;
 }
 
 .tech-images {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 5.3rem;
-    justify-items: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr 3fr;
+  gap: 8rem;
+  justify-items: center;
+  align-items: center;
 }
 
 .tech-images > div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tech-images img {
-    width: 140%;
-    max-width: 400px;
-    height: auto;
-    padding: 1rem;
-    transition: all 0.3s ease;
+  width: 120%;
+  max-width: 400px;
+  height: auto;
+  padding: 1rem;
+  transition: all 0.3s ease;
 }
 
 .tech-images img:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 
-        rgba(250, 250, 250, 0.4) 0px 5px, 
-        rgba(255, 255, 255, 0.3) 0px 10px, 
-        rgba(255, 255, 255, 0.2) 0px 15px, 
-        rgba(255, 255, 255, 0.1) 0px 20px, 
-        rgba(255, 255, 255, 0.05) 0px 25px;
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: rgba(250, 250, 250, 0.4) 0px 5px,
+    rgba(255, 255, 255, 0.3) 0px 10px, rgba(255, 255, 255, 0.2) 0px 15px,
+    rgba(255, 255, 255, 0.1) 0px 20px, rgba(255, 255, 255, 0.05) 0px 25px;
 }
 
 /* =========================================
    6. PROJECTS (PROJELER)
    ========================================= */
 .projects-section {
-    width: 100%;
-    padding: 3rem 0;
-    background-color: var(--color-bg-section);
+  width: 100%;
+  padding: 4rem 0;
+  padding-left: 100px;
+  padding-right: 20px;
+  background-color: var(--color-bg-section);
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .projects-grid {
-    max-width: 1650px;
-    margin: 0 auto;
-    margin-right: 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 3rem;
-    padding: 2rem clamp(1rem, 5vw, 3rem);
+  max-width: 1800px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  box-sizing: border-box;
 }
 
 .project-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .project-card {
-    background-color: var(--color-bg-card);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(86, 78, 78, 0.2);
-    transition: all 0.3s ease;
+  background-color: var(--color-bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(86, 78, 78, 0.25);
+  transition: all 0.3s ease;
+  min-height: 320px;
+  width: 100%;
 }
 
 .card-image {
-    height: 220px;
-    overflow: hidden;
+  height: 280px;
+  overflow: hidden;
 }
 
 .card-image img {
-    width: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .card-info {
-    padding: 5px;
-    text-align: center;
+  padding-top: 10px;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .card-info h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #fff;
-    margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
 /* Proje Kartı Hover */
 .project-card-link:hover .project-card {
-    transform: translate3D(3px, 3px, 0);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  transform: translate3D(4px, 4px, 4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
+
 
 /* =========================================
    7. ERİŞİLEBİLİRLİK & MEDYA SORGULARI
    ========================================= */
 *:focus-visible {
-    outline: 3px solid var(--color-accent);
-    outline-offset: 2px;
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 .nav-link:focus-visible,
@@ -393,104 +411,268 @@ h1, h2, h3 {
 .side-image-3:focus-visible,
 .side-image-4:focus-visible,
 .side-image-5:focus-visible {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Tablet */
 @media (max-width: 1024px) {
-    body {
-        padding-left: 80px;
-    }
-    
-    .name-cont {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 3rem 2rem;
-    }
-    
-    .name-cont-text {
-        padding-right: 0;
-    }
-    
-    .name,
-    .job-title,
-    .fs-ds-dev {
-        text-align: center;
-    }
-    
-    .welcome-image-container {
-        order: -1;
-    }
-    
-    .navbar {
-        position: static;
-        justify-content: center;
-        margin-bottom: 2rem;
-    }
-    
-    .tech-images {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-    
-    .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
+  body {
+    padding-left: 80px;
+  }
+
+  .name-cont {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .name-cont-text {
+    padding-right: 0;
+  }
+
+  .name,
+  .job-title,
+  .fs-ds-dev {
+    text-align: center;
+  }
+
+  .welcome-image-container {
+    order: -1;
+  }
+
+  .navbar {
+    position: static;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .tech-images {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .projects-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);  
+    width: 100%;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+
+  .card-image {
+    height: 220px;
+    width: 100%;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-    body {
-        padding-left: 0;
-    }
-    
-    .side-bar {
-        width: 100%;
-        height: 60px;
-        bottom: 0;
-        top: auto;
-    }
-    
-    .side-images {
-        flex-direction: row;
-        padding: 10px 20px;
-        gap: 15px;
-    }
-    
-    .name-cont {
-        padding: 2rem 1rem;
-    }
-    
-    .navbar {
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .about_me {
-        margin: 3rem 1rem;
-        padding: 2rem 1rem;
-    }
-    
-    .tech-images {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 1rem;
-    }
-    
-    .projects-section {
-        margin-left: 0;
-        padding-bottom: 80px;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 1.5rem 1rem;
-    }
+  body {
+    padding-left: 0;
+    padding-bottom: 70px;
+  }
+
+  .side-bar {
+    width: 100%;
+    height: 70px;
+    bottom: 0;
+    top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .side-images {
+    flex-direction: row;
+    padding: 10px 15px;
+    gap: 20px;
+    justify-content: center;
+    background: transparent;
+  }
+
+  .side-image-2,
+  .side-image-3,
+  .side-image-4,
+  .side-image-5 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .name-cont {
+    padding: 5rem 1rem 2rem 1rem;
+    min-height: auto;
+    gap: 1.5rem;
+  }
+
+  .name {
+    font-size: 1.6rem;
+  }
+
+  .job-title,
+  .fs-ds-dev {
+    font-size: 0.9rem;
+  }
+
+  .welcome-image-container {
+    margin-top: 1rem;
+  }
+
+  .welcome-image {
+    max-width: 280px;
+    border-width: 5px;
+    box-shadow: 5px 5px 0px rgba(255, 255, 255, 0.2);
+  }
+
+  .navbar {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .about_me {
+    margin: 2rem 1rem;
+    padding: 1.5rem 1rem;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+
+  .about_me_title {
+    font-size: 1.5rem;
+  }
+
+  .about_me_context {
+    font-size: 0.95rem;
+  }
+
+  .images-section {
+    margin: 2rem auto;
+    padding: 1.5rem 1rem;
+  }
+
+  .images_description {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tech-images {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .tech-images img {
+    width: 100%;
+    max-width: 80px;
+    padding: 0.5rem;
+  }
+
+  .projects-section {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 100px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .project-card {
+    max-width: 100%;
+    min-height: auto;
+    border-radius: 12px;
+  }
+
+  .card-image {
+    height: 200px;
+    width: 100%;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-info h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .name {
+    font-size: 1.3rem;
+  }
+
+  .job-title,
+  .fs-ds-dev {
+    font-size: 0.8rem;
+  }
+
+  .welcome-image {
+    max-width: 220px;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .about_me_title {
+    font-size: 1.3rem;
+  }
+
+  .about_me_context {
+    font-size: 0.85rem;
+  }
+
+  .tech-images {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .tech-images img {
+    max-width: 60px;
+  }
+
+  .side-image-2,
+  .side-image-3,
+  .side-image-4,
+  .side-image-5 {
+    width: 35px;
+    height: 35px;
+  }
+
+  .side-images {
+    gap: 15px;
+  }
 }

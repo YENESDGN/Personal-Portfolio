@@ -379,23 +379,66 @@ img {
         --spacing-xl: 3rem;
     }
     
-    .top-bar-image img,
-    .bottom-bar-image img,
-    .toGitHub-content img {
+    .top-bar,
+    .bottom-bar {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .top-bar-image img {
+        transform: translateY(0);
+        box-shadow: 5px 5px rgba(255, 255, 255, 0.2);
         max-width: 100%;
+    }
+    
+    .bottom-bar-image img {
+        transform: translateY(0);
+        box-shadow: 5px 5px rgba(255, 255, 255, 0.2);
+        max-width: 100%;
+    }
+    
+    .bottom-bar-content {
+        transform: translateX(0);
+        padding: 1rem 0;
     }
     
     .image-desc,
     .image-desc-1 {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        transform: translateY(0) !important;
+        text-align: center;
     }
     
     .connection {
-        height: 150px;
+        height: 80px;
+    }
+    
+    .go-back-container {
+        padding: 15px;
     }
     
     .go-back {
-        padding: 0.75rem 1.25rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .toGitHub {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+    }
+    
+    .toGitHub-content img {
+        max-width: 200px;
+    }
+    
+    .github-link a {
+        font-size: 1.5rem;
+    }
+    
+    .github-link p {
+        padding: 0.75rem 1rem;
         font-size: 0.9rem;
     }
 }
@@ -410,13 +453,29 @@ img {
     .top-bar,
     .bottom-bar,
     .toGitHub {
-        padding: var(--spacing-sm);
+        padding: 0.75rem;
     }
     
-    .top-bar-content,
-    .bottom-bar-content,
-    .toGitHub-content {
-        padding: var(--spacing-sm);
+    .image-desc,
+    .image-desc-1 {
+        font-size: 0.85rem;
+    }
+    
+    .connection {
+        height: 50px;
+    }
+    
+    .toGitHub-content img {
+        max-width: 150px;
+    }
+    
+    .github-link a {
+        font-size: 1.2rem;
+    }
+    
+    .github-link p {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
     }
 }
 
