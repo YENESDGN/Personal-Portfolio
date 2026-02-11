@@ -175,6 +175,29 @@ h3 {
   flex-wrap: wrap;
 }
 
+.engtotr {
+  align-items: center;
+  display: flex;
+  border: 2px solid white;
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: white;
+  font-family: var(--font-primary);
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.engtotr:hover {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 10px rgba(12, 93, 155, 0.7);
+  transform: translateY(-2px);
+}
+
+
 .nav-link {
   text-decoration: none;
   color: white;

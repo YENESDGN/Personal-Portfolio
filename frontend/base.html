@@ -25,8 +25,9 @@
     <section class="name-container">
         <div class="name-cont">
             <nav class="navbar" aria-label="Ana menü">
-                <a href="#projects" class="nav-link">Projeler</a>
-                <a href="#about-me" class="nav-link">Hakkımda</a>
+                <button class="engtotr" id="language-toggle" aria-label="Dil değiştir">TR</button>
+                <a href="#projects" class="nav-link" data-tr="Projeler" data-en="Projects">Projeler</a>
+                <a href="#about-me" class="nav-link" data-tr="Hakkımda" data-en="About Me">Hakkımda</a>
             </nav>
 
             <div class="welcome-image-container">
@@ -42,8 +43,8 @@
     </section>
 
     <div class="about_me" id="about-me">
-        <h3 class="about_me_title">Merhabalar, ben Yağız Enes</h3>
-        <p class="about_me_context">
+        <h3 class="about_me_title" data-tr="Merhabalar, ben Yağız Enes" data-en="Hello, I'm Yağız Enes">Merhabalar, ben Yağız Enes</h3>
+        <p class="about_me_context" data-tr="<br>Fırat Üniversitesi Yazılım Mühendisliği 3. sınıf öğrencisiyim. Veri Bilimi ve Full-Stack Development ile ilgileniyorum. Asıl alanım Full-Stack Development olmakla beraber, ortaya çıkardığım bir websitesi aracılığıyla sunabilmek için multi-disipliner bir çalışma yaklaşımını benimsiyorum.<br><br>Öğrenmeye açık, çalışmaktan kaçınmayan ve başladığım işi tamamlamadan bırakmayan biriyim. Yeni teknolojileri keşfetmek, sorunlara etkili ve ölçeklenebilir çözümler üretmek beni motive ediyor. Ürettiğim projelerde sürdürülebilir mimari, temiz kod prensipleri ve kullanıcı deneyimini merkeze alan tasarım anlayışını önemsiyorum.<br><br>Hedefim; teknik bilgi birikimimi sürekli geliştirerek hem profesyonel alanda hem de kişisel projelerimde güçlü ve değer üreten işler ortaya koymak.<br><br><br>" data-en="<br>I am a 3rd year Software Engineering student at Frrat University. I am interested in Data Science and Full-Stack Development. Although my main field is Full-Stack Development, I adopt a multi-disciplinary approach to present my work through the website I have created.<br><br>I am someone who is open to learning, does not shy away from work, and does not abandon what I start. Discovering new technologies and producing effective and scalable solutions to problems motivate me. In the projects I produce, I care about sustainable architecture, clean code principles, and user-centered design understanding.<br><br>My goal is to continually develop my technical knowledge and produce strong and value-creating work both in the professional field and in my personal projects.<br><br><br>">
             <br>
             Fırat Üniversitesi Yazılım Mühendisliği 3. sınıf öğrencisiyim. 
             Veri Bilimi ve Full-Stack Development ile ilgileniyorum. Asıl alanım Full-Stack Development olmakla beraber, ortaya çıkardığım bir 
@@ -60,7 +61,7 @@
 
     <section class="images-section">
         <div class="images_description">
-            <h3>TEKNİK YETERLİLİKLERİM</h3>
+            <h3 data-tr="TEKNİK YETERLİLİKLERİM" data-en="MY TECHNICAL SKILLS">TEKNİK YETERLİLİKLERİM</h3>
         </div>
         
         <div class="tech-images">
@@ -86,7 +87,7 @@
                 <img src="/static/assets/images/typescript.png" alt="TypeScript">
             </div>
             <div class="img_8">
-                <img src="/static/assets/images/database-storage.png" alt="Database">
+                <img src="/static/assets/images/tailwind.png" alt="Tailwind">
             </div>
             
         </div>
@@ -129,27 +130,14 @@
                     </div>
                 </div>
             </a>
-
             <!-- Proje Kartı 4 -->
             <a href="projects.html?id=4" class="project-card-link">
                 <div class="project-card">
                     <div class="card-info">
-                        <h3>TicTacToe</h3>
+                        <h3>CoLearn</h3>
                     </div>
                     <div class="card-image">
-                        <img src="/static/assets/project_images/TicTacToe-Kapak.png" alt="Proje 4">
-                    </div>
-                </div>
-            </a>
-
-            <!-- Proje Kartı 5 -->
-            <a href="projects.html?id=5" class="project-card-link">
-                <div class="project-card">
-                    <div class="card-info">
-                        <h3>MineSweep</h3>
-                    </div>
-                    <div class="card-image">
-                        <img src="/static/assets/project_images/MineSweep-Kapak.png" alt="Proje 5">
+                        <img src="/static/assets/project_images/CoLearn-Kapak.png" alt="Proje 6">
                     </div>
                 </div>
             </a>

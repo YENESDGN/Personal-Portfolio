@@ -109,3 +109,53 @@ function updateProjectTitle(project) {
         titleElement.textContent = project.title;
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const languageToggle = document.getElementById('language-toggle');
+    
+    let currentLanguage = localStorage.getItem('selectedLanguage') || 'tr';
+    updateLanguageDisplay(currentLanguage);
+    
+    languageToggle.addEventListener('click', function() {
+        currentLanguage = currentLanguage === 'tr' ? 'en' : 'tr';
+        localStorage.setItem('selectedLanguage', currentLanguage);
+        updateLanguageDisplay(currentLanguage);
+    });
+    
+    function updateLanguageDisplay(language) {
+        languageToggle.textContent = language.toUpperCase();
+        languageToggle.setAttribute('data-lang', language);
+        
+        // Tüm `data-tr` ve `data-en` içerikleri güncelle
+        updatePageContent(language);
+    }
+    
+    function updatePageContent(language) {
+        // Başlık
+        updateElement('.about_me_title', language);
+        updateElement('.about_me_context', language);
+        updateElement('.images_description h3', language);
+        updateElement('.card-info h3', language);
+        
+        // Nav linklerini güncelle
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            const text = link.getAttribute(`data-${language}`);
+            if (text) link.textContent = text;
+        });
+    }
+    
+    function updateElement(selector, language) {
+        const element = document.querySelector(selector);
+        if (element) {
+            const content = element.getAttribute(`data-${language}`);
+            if (content) element.innerHTML = content;
+        }
+    }
+});
+
+window.addEventListener('load', function() {
+    const currentLanguage = localStorage.getItem('selectedLanguage') || 'tr';
+    // Gerekli yerlerde dili uygula
+    document.documentElement.setAttribute('lang', currentLanguage);
+});

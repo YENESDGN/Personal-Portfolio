@@ -13,18 +13,15 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            // Bir kez görünür olduktan sonra gözlemlemeyi durdur
             observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Tüm animasyonlu elemanları gözlemle
 animatedElements.forEach(element => {
-    observer.observe(element);
+    if (element) observer.observe(element);
 });
 
-// Fallback: Eski tarayıcılar için scroll event listener
 if (!('IntersectionObserver' in window)) {
     function checkScroll() {
         if (!ticking) {
@@ -47,7 +44,6 @@ if (!('IntersectionObserver' in window)) {
     window.addEventListener('load', checkScroll);
 }
 
-// Sayfa yeniden yüklendiğinde en üste scroll
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
@@ -56,6 +52,61 @@ window.addEventListener('beforeunload', () => {
     window.scrollTo(0, 0);
 });
 
+// Global değişken - project verilerini sakla
+let currentProject = null;
+
+// Dil değiştirme fonksiyonları
+function updateProjectLanguage(language) {
+    if (!currentProject) return;
+    
+    const desc1Element = document.querySelector('.image-desc');
+    const desc2Element = document.querySelector('.image-desc-1');
+    
+    if (desc1Element) {
+        if (language === 'en' && currentProject.description_en) {
+            desc1Element.textContent = currentProject.description_en;
+        } else {
+            desc1Element.textContent = currentProject.description;
+        }
+    }
+    
+    if (desc2Element) {
+        if (language === 'en' && currentProject.description2_en) {
+            desc2Element.textContent = currentProject.description2_en;
+        } else {
+            desc2Element.textContent = currentProject.description2;
+        }
+    }
+    
+    // Başlık ve "Geri Dön" butonunu güncelle
+    updatePageText(language);
+}
+
+function updatePageText(language) {
+    const goBackButton = document.querySelector('.go-back p');
+    if (goBackButton) {
+        goBackButton.textContent = language === 'en' ? 'Go Back' : 'Geri Dön';
+    }
+    
+    const githubLinkText = document.querySelector('.github-link p');
+    if (githubLinkText) {
+        githubLinkText.textContent = language === 'en' ? 'View on GitHub' : 'GitHub\'da Görüntüle';
+    }
+}
+
+// Dil seçimini dinle ve sayfayı güncelle
+function listenToLanguageChanges() {
+    // LocalStorage'u düzenli olarak kontrol et
+    const checkLanguage = setInterval(() => {
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'tr';
+        const currentLangAttr = document.documentElement.getAttribute('data-language') || 'tr';
+        
+        if (savedLanguage !== currentLangAttr) {
+            document.documentElement.setAttribute('data-language', savedLanguage);
+            updateProjectLanguage(savedLanguage);
+        }
+    }, 500);
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('projects.js yüklendi');
@@ -79,23 +130,38 @@ document.addEventListener('DOMContentLoaded', async () => {
         const project = await response.json();
         console.log('Proje verisi:', project);
         
+        // Proje verilerini sakla
+        currentProject = project;
+        
+        // Başlığı ayarla
+        document.title = project.title + ' - Portföy';
+        document.documentElement.setAttribute('lang', 'tr');
+        
+        // Mevcut dili al
+        const currentLanguage = localStorage.getItem('selectedLanguage') || 'tr';
+        
         // Description 1
         const desc1Element = document.querySelector('.image-desc');
-        console.log('desc1Element:', desc1Element);
         if (desc1Element) {
-            desc1Element.textContent = project.description;
+            if (currentLanguage === 'en' && project.description_en) {
+                desc1Element.textContent = project.description_en;
+            } else {
+                desc1Element.textContent = project.description;
+            }
         }
         
         // Description 2
         const desc2Element = document.querySelector('.image-desc-1');
-        console.log('desc2Element:', desc2Element);
         if (desc2Element) {
-            desc2Element.textContent = project.description2;
+            if (currentLanguage === 'en' && project.description2_en) {
+                desc2Element.textContent = project.description2_en;
+            } else {
+                desc2Element.textContent = project.description2;
+            }
         }
         
         // Image 1
         const image1Element = document.querySelector('.top-bar-image img');
-        console.log('image1Element:', image1Element);
         if (image1Element) {
             image1Element.src = project.image_url;
             image1Element.alt = project.title;
@@ -103,7 +169,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         // Image 2
         const image2Element = document.querySelector('.bottom-bar-image img');
-        console.log('image2Element:', image2Element);
         if (image2Element) {
             image2Element.src = project.image_url2;
             image2Element.alt = project.title;
@@ -117,7 +182,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 link.target = '_blank';
             }
         });
-
+        
+        // Sayfa metnini güncelle
+        updatePageText(currentLanguage);
+        
+        // Dil değişikliklerini dinle
+        listenToLanguageChanges();
 
     } catch (error) {
         console.error('Proje detayları yüklenemedi:', error);
